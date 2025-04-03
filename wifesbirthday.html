@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Happy Birthday Bunny!!!</title>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+	<style>
+	   body {
+		font-family: "Arial", sans-serif;
+		background-color: #131862;
+		text-align: center;
+		color: #fff;
+		padding: 20px;
+	  }
+	  
+	  h1 {
+	     font-family:  'Dancing Script', cursive; /* handwritting bc i can */
+	     font-size: 3em;
+	     color: #ff4081;
+	     text-shadow: 2px 2px 10px rgba(255, 64, 129, 0.3); /* fancy! */
+	     text-align: center;
+	  }
+
+	.container {
+	     position: relative;
+	     max-width: 400px;
+	     margin: 50px auto;
+	}
+
+	.card {
+	    width: 100%;
+	    background: white;
+	    color: #ff4081;
+	    padding: 20px;
+	    border-radius: 10px;
+	    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	    position: relative;
+	    transition: transform 0.3s ease-in-out;
+	}
+
+	/* i need to flip the effects using details tag */
+	details {
+	    cursor: pointer;
+	}
+
+	canvas {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100vw;
+	    height: 100vh;
+	    z-index: -1;
+	}
+
+
+	summary {
+	    font-size: 1.5em;
+	    font-weight: bold;
+	    padding: 10px;
+	    background: #ff4081;
+	    color: white;
+	    border-radius: 5px;
+	    display: inline-block;
+	    transition: background 0.3s;
+	}
+	
+	summary:hover {
+	    background: #e91e63;
+	}
+
+	.message {
+	    opacity: 0;
+	    max-height: 0;
+	    overflow: hidden;
+	    transition: opacity 1s ease-in-out, max-height 1s ease-in-out;
+	}
+
+	details[open] .message {
+	    opacity: 1;
+	    max-height: 500px;
+	    padding-top: 10px;
+	}
+
+	/* floating balloons is a great idea! */
+	.balloon {
+	    position: absolute;
+	    bottom: -50px;
+	    width: 40px;
+	    height: 60px;
+	    background: pink;
+	    border-radius: 50%;
+	    animation: floatUp 6s linear infinite;
+	}
+
+	.balloon::after {
+	    content: "";
+	    position: absolute;
+	    bottom: -15px;
+	    left: 50%;
+	    width: 2px;
+	    height: 15px;
+	    background: white;
+	    transform: translateX(-50%);
+	}
+
+	@keyframes floatUp {
+	    from {
+		bottom: -50px;
+		opacity: 1;
+	    }
+	    to {
+		bottom: 100%;
+		opacity: 0;
+	    }
+	}
+
+	#moon-img {
+	    position: absolute;
+	    top: 20px;  /* Distance from the top */
+	    left: 20px; /* Distance from the left */
+	    width: 500px; /* Adjust the size */
+	    height: auto;
+	    border-radius: 10px; /* Optional: round edges */
+	}
+
+	#luna-img {
+	    position: absolute;
+	    bottom: 0vh;  /* Distance from the bottom */
+	    right: 0vw; /* Distance from the bottom */
+	    width: 350px; /* Adjust the size */
+	    height: auto;
+	    border-radius: 10px; /* Optional: round edges */
+	}
+
+	.music-button {
+	    position: fixed;
+	    top: 20px;
+	    left: 740px;
+	    background-color: #282D5A;
+	    color: white;
+	    border: none;
+	    padding: 10px 25px;
+	    font-size: 1.2em;
+	    cursor: pointer;
+	    border-radius: 30%;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	    transition: background-color 0.3s;
+	    z-index: 1;
+	}
+
+	#pinkie-img {
+	    position: absolute;
+	    top: 0vh;  /* Distance from the bottom */
+	    right: 10vw; /* Distance from the bottom */
+	    width: 300px; /* Adjust the size */
+	    height: auto;
+	    border-radius: 10px; /* Optional: round edges */
+	}
+
+	.back-button {
+	    position: fixed;
+	    top: 0vh;
+	    right: 0vw;
+	    background-color: #131862;
+	    color: white;
+	    border: none;
+	    padding: 10px 15px;
+	    font-size: 1.2em;
+	    cursor: pointer;
+	    border-radius: 8px;
+	    transition: background-color 0.3s;
+	    z-index: 1;
+	}
+
+	.back-button:hover {
+	    background-color: #131862;
+	}
+
+	.back-button:active {
+	    background-color: #131862;
+	}
+
+
+
+	.balloon:nth-child(1) { left: 5%; animation-duration: 6s;
+background: red; }
+	.balloon:nth-child(2) { left: 15%; animation-duration: 4.5s;
+background: orange; }
+	.balloon:nth-child(3) { left: 25%; animation-duration: 5.5s;
+background: yellow; }
+	.balloon:nth-child(4) { left: 35%; animation-duration: 6s;
+background: lightblue; }
+	.balloon:nth-child(5) { left: 45%; animation-duration: 7s;
+background: purple; }
+	.balloon:nth-child(6) { left: 55%; animation-duration: 5.2s;
+background: green; }
+	.balloon:nth-child(7) { left: 65%; animation-duration: 4.8s;
+background: pink; }
+	.balloon:nth-child(8) { left: 75%; animation-duration: 6.5s;
+background: cyan; }
+	.balloon:nth-child(9) { left: 85%; animation-duration: 5.3s;
+background: magenta; }
+	.balloon:nth-child(10) { left: 95%; animation-duration: 6.8s;
+background: violet; }
+    </style>
+</head>
+<body>
+
+    <audio id="backgroundMusic" loop>
+	<source src="a-tout-le-monde.mp3" type="audio/mp3">
+	Your browser does not support the audio element.
+    </audio>
+
+    <canvas id="stars"></canvas>
+
+    <button class="back-button" onclick="window.location.href='apology.html'">I'm Sorry</button>
+
+    <img id="moon-img" src="justmoon.jpg" alt="moon">
+
+    <img id="luna-img" src="justlunafr.jpg" alt="luna">
+
+    <img id="pinkie-img" src="pinkiepie.png" alt="pinkie">
+
+    <button class="music-button" id="musicButton" aria-label="Toggle music">🎂</button>
+
+
+    <div class="container">
+	<h1>Happy Birthday, My Bunny!</h1>
+
+	<div class="card">
+	    <details>
+		<summary>Click To Open Your Card!</summary>
+		<div class="message">
+		    <p>My bunbun,</p>
+		    <p>I just want to remind you how
+amazing you are. You bring so much joy and love into my life, and I am
+endlessly grateful for you and the love you hold for me. <3</p>
+		    <p>May your birthday be filled with happiness,
+laughter, and all the love you deserve!</p>
+		    <p>Love you always,</p>
+		    <p>Your girlfriend, Collector</p>
+		</div>
+	    </details>
+	</div>
+
+	<!-- floating balloons -->
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+	<div class="balloon"></div>
+
+    </div>
+
+    <script>
+	const canvas = document.getElementById("stars");
+	const ctx = canvas.getContext("2d");
+	
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	
+	function Star(x, y, radius, speed) {
+	    this.x = x;
+	    this.y = y;
+	    this.radius = radius;
+	    this.speed = speed;
+	    this.alpha = Math.random() * 0.5 + 0.5;
+	}
+
+	Star.prototype.update = function () {
+	    this.y += this.speed;
+	    if (this.y > canvas.height) {
+		this.y = 0;
+		this.x = Math.random() * canvas.width;
+	    }
+	};
+
+	Star.prototype.draw = function () {
+	    ctx.beginPath();
+	    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+	    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+	    ctx.fill();
+	};
+
+	let stars = [];
+
+	function createStars() {
+	    for (let i = 0; i < 200; i++) {
+		const radius = Math.random() * 2 + 1;
+		const x = Math.random() * canvas.width;
+		const y = Math.random() * canvas.height;
+		const speed = Math.random() * 0.5 + 0.1;
+		
+		stars.push(new Star(x, y, radius, speed));
+	    }
+	}
+
+	function animateStars() {
+	    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	    stars.forEach(star => {
+		star.update();
+		star.draw();
+	    });
+	    
+	    requestAnimationFrame(animateStars);
+	}
+
+	createStars();
+	animateStars();
+
+	const musicButton = document.getElementById("musicButton");
+	const backgroundMusic = document.getElementById("backgroundMusic");
+	
+	let isMusicPlaying = false;
+
+	musicButton.addEventListener("click", function() {
+	    if (isMusicPlaying) {
+		backgroundMusic.pause();
+		isMusicPlaying = false;
+	    } else {
+		backgroundMusic.play();
+		isMusicPlaying = true;
+	    }
+	});
+
+
+    </script>
+</body>
+</html>

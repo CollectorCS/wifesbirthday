@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #131862;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #ff4081;
+            text-shadow: 2px 2px 10px rgba(255, 64, 129, 0.3);
+            text-align: center;
+        }
+        
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+	.letter-container {
+	    width: 90%;
+	    max-width: 400px;
+	    background: #0b3d91;
+	    padding: 20px;
+	    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+	    border-radius: 10px;
+	    text-align: left;
+	    font-size: 1em;
+	    line-height: 1.6;
+	    border-left: 5px solid #131862;
+	    position: absolute; /* Change from relative */
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%); /* Centers it */
+	}
+
+	#love-letter {
+	    white-space: pre-wrap;
+	    overflow: hidden;
+	    min-height: 8em;
+	    display: block;
+	}
+
+	#start-btn {
+	    background: #0B1026;
+	    color: white;
+	    font-size: 1.2em;
+	    border: none;
+	    padding: 10px 20px;
+	    border-radius: 5px;
+	    cursor: pointer;
+	    margin-top: 15px;
+	    font-family: 'Merienda', cursive;
+	    display: block;
+	    margin: 0 auto;
+	    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+	}
+
+	#start-btn:hover {
+	    background: #131862;
+	}
+
+	.button-container {
+	    text-align: center;
+	}
+
+	.back-button {
+	    position: fixed;
+	    top: 20px;
+	    left: 20px;
+	    background-color: #131862;
+	    color: white;
+	    border: none;
+	    padding: 10px 15px;
+	    font-size: 1.2em;
+	    cursor: pointer;
+	    border-radius: 8px;
+	    transition: background-color 0.3s;
+	    z-index: 1;
+	    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+	}
+
+	.back-button:hover {
+	    background-color: #131862;
+	}
+
+	.back-button:active {
+	    background-color: #131862;
+	}
+
+	#sunset-img {
+	    position: absolute;
+	    bottom: 0vh;  /* Distance from the bottom */
+	    left: 0vw; /* Distance from the bottom */
+	    width: 200px; /* Adjust the size */
+	    height: auto;
+	    border-radius: 10px; /* Optional: round edges */
+	}
+
+
+    </style>
+</head>
+<body>
+
+<button class="back-button" onclick="window.location.href='wifesbirthday.html'">Go Back</button>
+
+    <div class="letter-container">
+	<div class="button-container">
+    	   <button id="start-btn">...</button>
+    	</div>
+	<p id="love-letter"></p>
+    </div>
+
+    <img id="sunset-img" src="sunset.jpg" alt="sunset">
+
+
+<canvas id="rain"></canvas>
+
+    <audio id="bg-music" loop>
+	<source src="pretend.mp3" type="audio/mpeg">
+    </audio>
+
+
+<script>
+
+	document.getElementById("start-btn").addEventListener("click", function () {
+	    const text =`Bunny, I'm deeply sorry once again for what happened, I've issues as you know which is why I've been worried about you leaving me for our entire relationship. I never meant to be rude and hurt you, especially right before your birthday and right after the conversation we had going on before i said that stupid shit. It's mainly why I've been seeing a therapist honestly, this condition is killing my friendships and relationships because no one wants to give anyone a second chance. You can accuse me and be mad for "using an ai" but its just not true, I promise you, I consulted my therapist for the most part of it, which is dumb but I'd go to the end of the universe to provide enough information on my behavior for you to forgive and love me. Since I've only been apologizing, I'll also try to rephrase what I said as best as I can, idk if it'll sound just as bad but I hope not. What I meant then, and phrased poorly, was that you were pretty attractive even back then when I didn't really see you in a romantic way, but, nowadays, after being with you for over 2 months, in my eyes you've gotten like 10000 times prettier because of big my love is for you, and I find it fascinating how love can do that. Even women that I used to find pretty and attractive are beggining to look like creatures from Monsters Inc because they don't even approach you in terms of beauty. And I won't get into detail for how pretty you are, but, sike I am. Your pretty green eyes look like a rainforest in spring, everytime I see them in your pictures I feel my heart flutter so much faster than before. Your nose is so beautifully structured on your pretty face. Your smile is so so so so so so so so so adorable like ughhh i wanna kiss those lips please please please please please please please. Ahem. I love your hair sm it looks so soft and pretty and you look so beautiful wether its down or in a bun. And, like I've mentioned, I fell for your beautiful personality first, and I already went into too much detail for your beautiful face so I won't get into detail about that too, sike, you know me better. SO. I love the way you talk in such a profound manner, it's why I nicknamed you Shakespeare with my friends, i think its so cute and attractive that you use long ass words that half the time i either have to translate them or search them on google. Another thing I love about the way you talk is the little things, such as "hehe", ":3", "<3", all the silly faces with the :3 face, the way you call me baby, the silly mlp emojis, the way you sometimes put exclamation marks after your sentences and the nerd talk about physics is sooooooooo cute x3. I also love how you feel so comfortable sharing deep secrets with me. I love how much of a nerd you are, and yes i say that all the time but seriously its just so uh alluring and attractive to be a nerd. I also love the grandma jokes even if they're so unfunny, theyre so unfunny that they're funny. Random horse: Nuzzles me Me: laughs Easy now. I do love the way you reassure me everytime and comfort me cause like i mentioned earlier im so worried one day you'll get sick of me and my mental illness and i just really need those reassuring words in those moments. OH AND I LOVE YOUR VOICE LET ME VC SOMETIME MY DUMBASS MISTAKE COULDN'T HAVE BEEN ANY WORSE TIMED GODDAMNIT. Ahem x3. I also love how we share a mutual interest for mlp bc ngl i dont have anyone to talk about it with and its a longterm hyperfixation honestly. To end my yapping, I just really really really love you Skylar and I need you to stay by my side. You can take all the time you want to process everything, I promise to stay calm and not text unless absolutely necessary like when I sent you the url to this website. I LOVE YOUUUUUUUUUUUUUU MWAAAAAAAAAHHHHHHHHHHHHH STAY SAFE BABE. And i really do hope you forgive me for hurting you like that. But also allow me to mention that it really really hurt that you didnt trust me at all and went to an AI checker to paste my apology into. Ouch. And sending it to Oli and Benfi before even asking me and demanding an explanation hurts further. But, consindering i hurt you deeply i dont blame you for making mistakes too. Have an amazing birthday Skylar!.`;
+
+	let index = 0;
+	const speed = 50;
+	const letterElement = document.getElementById("love-letter");
+	const button = document.getElementById("start-btn");
+	const music = document.getElementById("bg-music");
+
+	button.style.display = "none";
+	letterElement.innerHTML = "";
+
+	music.play().catch(error => console.log("Autoplay blocked:", error));
+	
+	function typewriter() {
+	    if (index < text.length) {
+		letterElement.innerHTML += text.charAt(index);
+		index++;
+		setTimeout(typewriter, speed);
+
+	    }
+	}
+
+	typewriter();
+
+     });
+
+    const canvas = document.getElementById("rain");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    function Raindrop(x, y, length, speed) {
+        this.x = x;
+        this.y = y;
+        this.length = length;
+        this.speed = speed;
+        this.alpha = Math.random() * 0.5 + 0.3;
+    }
+
+    Raindrop.prototype.update = function () {
+        this.y += this.speed;
+        if (this.y > canvas.height) {
+            this.y = 0;
+            this.x = Math.random() * canvas.width;
+        }
+    };
+
+    Raindrop.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.length);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+    };
+
+    let raindrops = [];
+
+    function createRain() {
+        for (let i = 0; i < 300; i++) {
+            const length = Math.random() * 10 + 5;
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const speed = Math.random() * 4 + 2;
+            
+            raindrops.push(new Raindrop(x, y, length, speed));
+        }
+    }
+
+    function animateRain() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        raindrops.forEach(raindrop => {
+            raindrop.update();
+            raindrop.draw();
+        });
+        
+        requestAnimationFrame(animateRain);
+    }
+
+    createRain();
+    animateRain();
+</script>
+
+</body>
+</html>
